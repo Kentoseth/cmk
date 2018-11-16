@@ -9,10 +9,10 @@ type Category* = object
   cmd* : string
   des*  : string
     
-var file_path: string = getHomeDir() & ".comcek/cmd.yaml"
-    
+var file_path: string = getConfigDir() & "comcek/cmd.yaml"
+
 # echo file_path
-# /home/myuser/.comcek/cmd.yaml
+# $XDG_CONFIG_HOME/.comcek/cmd.yaml
 
 var cmd_file = newFileStream(file_path, fmRead)
 
