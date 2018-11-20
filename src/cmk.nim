@@ -12,10 +12,15 @@ type Category* = object
 var file_path: string = getConfigDir() & "comcek/cmd.yaml"
 
 # echo file_path
-# $XDG_CONFIG_HOME/.comcek/cmd.yaml
+# $XDG_CONFIG_HOME/comcek/cmd.yaml
 
 var cmd_file = newFileStream(file_path, fmRead)
 
+proc upath(run: seq[string]) =
+
+  ## displays the full filepath for the cmk folder
+  
+  echo file_path
 
 proc display_all(run: seq[string]) =
 
@@ -96,6 +101,7 @@ when isMainModule:
   import cligen 
   dispatchMulti([ display_all, cmdName="all"],
                 [ display, short = { "category": 'c', "id": 'i' } ],
-                [ execute, cmdName="exec", short = { "id": 'i' } ] )
+                [ execute, cmdName="exec", short = { "id": 'i' } ],
+                [ upath ] )
 
 cmd_file.close()

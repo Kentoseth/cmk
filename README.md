@@ -31,10 +31,13 @@ Comcek is a self-contained binary written in the Nim programming language. All y
 
 ## Installation
 
- * Create a folder at your default user path: `mkdir ~/.comcek`
- * Create a YAML file: `touch cmd.yaml`
- * Download the binary and store it in: `~/.comcek/`
- * Export the PATH in your .profile or other file: `export PATH=/home/user/.comcek:$PATH`
+ * Create a folder to store the binary file in, example: `mkdir ~/cmk-bin`
+ * Place the binary file in `~/cmk-bin`
+ * Export the PATH in your .profile or other file: `export PATH=/home/user/cmk-bin:$PATH`
+ * Determine the configuration path for your system by running: `cmk upath`
+ * `cd` into the folder shown above (on UNIX it is generally: `~/.config/comcek` )
+ * If the `/comcek` folder doesn't exist, create it so that it matches `cmk upath`
+ * Create a YAML file: `touch cmd.yaml` inside `/comcek`
 
 ## Releases
 
@@ -47,12 +50,13 @@ Release will contain:
 
 ## Usage
 
-Comcek currently has 3 supported commands: display_all , display , execute
+Comcek currently has 4 supported commands: display_all , display , execute, upath
 
  * `cmk display_all` OR `cmk all` - Will display everything stored in cmd.yaml
  * `cmk display --category=<category-name>` OR `cmk display -c=<category-name>` - Will display entries for a specific category
  * `cmk display --id=<id-value>` OR `cmk display -i=<id-value>` - Will display entries for a specific ID
  * `cmk execute --id=<id-value>` OR `cmk exec -i=<id-value>` - Will execute the command at the specified ID
+ *  `cmk upath` - Will show the configuration file path where the YAML file will be stored
 
 Use `cmk --help` for more information.
 
@@ -81,7 +85,7 @@ You can create a PR or discuss it first by opening an Issue
 PR Rules:
 
  * Make sure the program compiles
- * Test it locally to make sure it works
+ * Test it locally to make sure the program runs
  * If the code is not readable, the PR may be rejected
 
 This project follows the UNIX philosophy of doing one thing only and (hopefully) doing it well.
@@ -95,3 +99,7 @@ The full license text is available in the file LICENSE
 ## Queries
 
 Open an Issue to discuss
+
+-----
+
+If you find this project interesting or useful, please star it and share it with colleagues and friends.
